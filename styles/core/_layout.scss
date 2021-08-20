@@ -1,0 +1,71 @@
+// SMACSS Layout Rules
+// ----------------------------
+// Layout styles can also be divided into major and minor styles based on reuse.
+// Major layout styles such as header and footer are traditionally styled using
+// ID selectors but take the time to think about the elements that are common
+// across all components of the page and use class selectors where appropriate.
+// ===============================================================================
+
+main {
+  position: relative;
+
+  .content-small-container {
+    max-width: var(--section-max-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 4.1vw;
+
+    @media (min-width: 64em) {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 2fr;
+      grid-column-gap: 16px;
+    }
+
+    @media (min-width: 93em) {
+      padding: 0;
+    }
+  }
+
+  // this margin is because of header with position:fixed
+  margin: var(--header-height-mobile) 0 0 0;
+
+  @media (min-width: 75em) {
+    margin: var(--header-height-desktop) 0 0 0;
+  }
+}
+
+//.smaller-header {
+//  main {
+//    // this margin is because of header with position:fixed
+//    margin: var(--header-height-mobile) 0 0 0;
+//
+//    @media (min-width: 75em) {
+//      margin: var(--header-height-desktop-sticky) 0 0 0;
+//    }
+//  }
+//}
+
+//main > section,
+//main > article {
+//  max-width: var(--section-max-width);
+//  margin: 0 auto;
+//  // padding in safe area
+//  // ref: https://webkit.org/blog/7929/designing-websites-for-iphone-x/
+//  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+//    env(safe-area-inset-bottom) env(safe-area-inset-left);
+//}
+
+/**
+  Full Width Section
+ */
+main > article.full-width,
+main > section.full-width {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
+
+// https://piccalil.li/quick-tip/flow-css-utility/
+.flow > * + * {
+  margin-top: var(--flow-space, 1em);
+}

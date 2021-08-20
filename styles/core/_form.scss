@@ -1,0 +1,49 @@
+/* Default Form Style
+------------------------ */
+form {
+  .field {
+    width: 100%;
+
+    .input-label {
+      color: var(--token-color-basic-5);
+      font-size: var(--text-scale-1);
+      margin: 0 0 var(--token-spacing-base) 0;
+    }
+
+    input {
+      min-width: 0;
+      width: 100%;
+      min-height: 48px;
+      height: 48px;
+      max-height: 48px;
+      border: 2px solid transparent;
+      outline: none;
+
+      border-radius: var(--token-radius-small);
+      padding: calc(var(--token-spacing-base) * 2) calc(var(--token-spacing-base) * 3);
+      background-color: var(--token-color-basic-1);
+      font-size: clamp(var(--text-scale-2), 0.2vw + 0.7rem, var(--text-scale-3));
+      font-weight: var(--token-font-weight-bold);
+
+      &::placeholder {
+        color: var(--token-color-basic-4);
+        font-size: inherit;
+        font-style: normal;
+      }
+
+      &:focus {
+        border: 2px dashed black;
+      }
+
+      &.has-error {
+        border: 1px solid var(--token-color-error);
+      }
+    }
+
+    .error-message {
+      color: var(--token-color-error);
+      font-size: var(--text-scale-1);
+      margin: var(--token-spacing-base) 0 0 0;
+    }
+  }
+}

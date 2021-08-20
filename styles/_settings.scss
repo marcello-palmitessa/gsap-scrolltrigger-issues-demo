@@ -1,0 +1,27 @@
+//  Settings
+//  -----------------------------
+@import './mixins/mixins';
+
+// 1. Global
+// ---------
+$render-vertical-rhythm-lines: false;
+
+// Include-Media breakpoints
+// ------------------
+$breakpoints: (
+  phone: 25.875em,
+  // 414px,
+  tablet: 48em,
+  // 768px,
+  desktop: 64em,
+  // 1024px
+);
+
+$use-variable-font: false;
+$use-variable-font-for-headings: false;
+
+// Forms
+// -----------
+$form-field-max-width: 20rem;
+$form-field-border: 2px solid var(--token-color-basic-6);
+$form-border-radius: 2px;

@@ -1,0 +1,14 @@
+**/node_modules/*
+**/out/*
+**/.next/*
+lib/tokens.ts
+lib/tokens.js
+lib/tokens.d.ts
+jest.config.js
+jest.setup.ts
+next.config.js
+scripts/*
+records.json
+postcss.config.js
+next-sitemap.js
+design-tokens/*

@@ -1,0 +1,342 @@
+@mixin button {
+  // defaults to basic5
+  --button-background-color: var(--color-basic-6-5);
+  --button-hover-background-color: var(--color-basic-5);
+  --button-color: var(--token-color-basic-5);
+  --button-border-color: var(--token-color-basic-6);
+
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  min-width: calc(var(--token-spacing-base) * 32);
+  min-height: calc(var(--token-spacing-base) * 6);
+  padding: calc(var(--token-spacing-base) * 2) calc(var(--token-spacing-base) * 8);
+  border-radius: var(--token-radius-small);
+
+  font-family: var(--token-button-font-family);
+  font-size: clamp(var(--text-scale-2), 0.2vw + 0.7rem, var(--text-scale-3));
+  line-height: 1;
+  font-weight: var(--token-font-weight-bold);
+  letter-spacing: normal;
+  text-transform: none;
+  text-decoration: none;
+  box-shadow: none;
+  transition: all 0.2s ease-out;
+
+  color: var(--button-color);
+  background-color: var(--button-background-color);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10%;
+    width: 120%;
+    height: 100%;
+    background-color: var(--button-hover-background-color);
+    //transform: skew(30deg);
+    transform: translate3d(-130%, 0, 0) skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+  }
+
+  &:hover {
+    &::before {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  span {
+    position: relative;
+  }
+
+  @media (min-width: 64em) {
+    min-height: calc(var(--token-spacing-base) * 8);
+  }
+
+  &.special {
+    min-height: calc(var(--token-spacing-base) * 5);
+    padding: calc(var(--token-spacing-base) * 2 - 2) calc(var(--token-spacing-base) * 8);
+
+    @media (min-width: 64em) {
+      min-height: calc(var(--token-spacing-base) * 6);
+    }
+  }
+
+  // keep this style as the last one
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.button-primary {
+  @include button;
+  border: 0;
+
+  &.basic1 {
+    --button-background-color: var(--color-basic-1-15);
+    --button-color: var(--token-color-basic-1);
+    --button-border-color: var(--color-basic-1-60);
+    --button-hover-background-color: var(--token-color-basic-1);
+
+    &:hover,
+    &:focus,
+    &:active {
+      //--button-background-color: var(--token-color-basic-1);
+      --button-color: var(--token-color-basic-6);
+      --button-border-color: var(--color-basic-1);
+    }
+
+    &:disabled {
+      --button-background-color: var(--color-basic-1-15);
+      --button-color: var(--token-color-basic-1);
+      --button-border-color: var(--color-basic-1-60);
+    }
+  }
+
+  &.basic5 {
+    --button-background-color: var(--color-basic-6-5);
+    --button-color: var(--token-color-basic-6);
+    --button-border-color: var(--color-basic-6-15);
+    --button-hover-background-color: var(--token-color-basic-6);
+
+    &:hover,
+    &:focus,
+    &:active {
+      //--button-background-color: var(--token-color-basic-5);
+      --button-color: var(--token-color-basic-1);
+      --button-border-color: var(--token-color-basic-5);
+    }
+
+    &:disabled {
+      --button-background-color: var(--color-basic-6-5);
+      --button-color: var(--token-color-basic-6);
+      --button-border-color: var(--color-basic-6-15);
+    }
+  }
+
+  &.basic6 {
+    --button-background-color: var(--color-basic-6-5);
+    --button-color: var(--token-color-basic-6);
+    --button-border-color: var(--color-basic-6-15);
+    --button-hover-background-color: var(--token-color-basic-6);
+
+    &:hover,
+    &:focus,
+    &:active {
+      //--button-background-color: var(--token-color-basic-6);
+      --button-color: var(--token-color-basic-1);
+      --button-border-color: var(--token-color-basic-6);
+    }
+
+    &:disabled {
+      --button-background-color: var(--color-basic-6-5);
+      --button-color: var(--token-color-basic-6);
+      --button-border-color: var(--color-basic-6-15);
+    }
+  }
+}
+
+.button-secondary {
+  @include button;
+
+  --button-background-color: transparent;
+  //background-color: transparent;
+  border: 1px solid var(--button-border-color);
+
+  &.basic1 {
+    //--button-background-color: var(--color-basic-1-15);
+    --button-color: var(--token-color-basic-1);
+    --button-border-color: var(--color-basic-1-60);
+
+    &:hover,
+    &:focus,
+    &:active {
+      --button-background-color: var(--token-color-basic-1);
+      --button-color: var(--token-color-basic-6);
+      --button-border-color: var(--color-basic-1);
+    }
+
+    &:disabled {
+      --button-background-color: transparent;
+      --button-color: var(--token-color-basic-1);
+      --button-border-color: var(--color-basic-1-60);
+    }
+  }
+
+  &.basic5 {
+    //--button-background-color: var(--color-basic-6-5);
+    --button-color: var(--token-color-basic-6);
+    --button-border-color: var(--color-basic-6-15);
+
+    &:hover,
+    &:focus,
+    &:active {
+      --button-background-color: var(--token-color-basic-5);
+      --button-color: var(--token-color-basic-1);
+      --button-border-color: var(--token-color-basic-5);
+    }
+
+    &:disabled {
+      --button-background-color: transparent;
+      --button-color: var(--token-color-basic-6);
+      --button-border-color: var(--color-basic-6-15);
+    }
+  }
+
+  &.basic6 {
+    //--button-background-color: var(--color-basic-5);
+    --button-color: var(--token-color-basic-6);
+    --button-border-color: var(--color-basic-6-15);
+
+    &:hover,
+    &:focus,
+    &:active {
+      --button-background-color: var(--token-color-basic-6);
+      --button-color: var(--token-color-basic-1);
+      --button-border-color: var(--token-color-basic-6);
+    }
+
+    &:disabled {
+      --button-background-color: transparent;
+      --button-color: var(--token-color-basic-6);
+      --button-border-color: var(--color-basic-6-15);
+    }
+  }
+}
+
+.button-download {
+  --download-background-color: var(--button-background-color);
+  --download-color: var(--button-color);
+
+  @include button;
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  min-width: 0;
+  overflow: hidden;
+
+  // svg wrapper for transition
+  > div {
+    position: relative;
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--token-radius-circle);
+    background-color: var(--download-background-color);
+    color: var(--download-color);
+    transition: all 0.2s ease-out;
+
+    @media (min-width: 64em) {
+      width: 52px;
+      height: 52px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+      border-radius: 50%;
+      background-color: var(--button-background-color);
+      transform: translate3d(0, 100%, 0);
+      transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
+    }
+  }
+
+  svg {
+    position: relative;
+    width: 40px;
+    height: 40px;
+  }
+
+  span {
+    margin-left: var(--token-spacing-base);
+  }
+
+  @media (min-width: 64em) {
+    svg {
+      width: 52px;
+      height: 52px;
+    }
+
+    span {
+      margin-left: calc(var(--token-spacing-base) * 2);
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    > div {
+      &::before {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+
+  &.basic1 {
+    --download-background-color: var(--token-color-basic-1);
+    --download-color: var(--token-color-basic-6);
+    --button-color: var(--token-color-basic-6);
+
+    > div {
+      &::before {
+        background-color: var(--token-color-basic-6);
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      --download-color: var(--token-color-basic-1);
+    }
+  }
+
+  &.basic5 {
+    --download-background-color: var(--token-color-basic-5);
+    --download-color: var(--token-color-basic-1);
+    --button-color: var(--token-color-basic-1);
+
+    > div {
+      &::before {
+        background-color: var(--token-color-basic-6);
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      --download-color: var(--token-color-basic-1);
+    }
+  }
+
+  &.basic6 {
+    --download-background-color: var(--token-color-basic-6);
+    --download-color: var(--token-color-basic-1);
+    --button-color: var(--token-color-basic-1);
+
+    > div {
+      &::before {
+        background-color: var(--token-color-basic-1);
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      --download-color: var(--token-color-basic-6);
+    }
+  }
+
+  &:disabled svg {
+    pointer-events: none;
+  }
+
+}

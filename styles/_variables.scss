@@ -1,0 +1,149 @@
+/** ****************************************************************
+
+    CSS Variables
+
+    Font rules are setup in base.scss for all major
+    elements using CSS variables.
+    When there's need to override a font rule, there's no need to
+    set again the rules, but it's best to just set a new value for
+    a CSS variable for a font rule.
+
+    **************************************************************** */
+@import './settings';
+
+:root {
+  // ################################################################
+  //    OTHER COLORS
+  // ################################################################
+  --theme-color: var(--token-color-basic-1);
+
+  --color-basic-6-5: rgba(0, 0, 0, 0.05);
+  --color-basic-6-15: rgba(0, 0, 0, 0.15);
+  --color-basic-6-30: rgba(0, 0, 0, 0.3);
+  --color-basic-6-60: rgba(0, 0, 0, 0.6);
+  --color-basic-6-75: rgba(0, 0, 0, 0.75);
+
+  --color-basic-1-5: rgba(255, 255, 255, 0.05);
+  --color-basic-1-15: rgba(255, 255, 255, 0.15);
+  --color-basic-1-30: rgba(255, 255, 255, 0.3);
+  --color-basic-1-60: rgba(255, 255, 255, 0.6);
+  --color-basic-1-75: rgba(255, 255, 255, 0.75);
+
+  /* Default body background */
+  --body-background: var(--token-color-basic-1);
+
+  /* type modular scale */
+  // body font size
+  --text-base-size: 1rem; // 18px - html is set to 112.5%
+
+  // type scale
+  --text-base-scale-size: var(--token-font-size-size04); // 18px, 1rem
+  --text-scale-1: calc(var(--token-font-size-size01) / var(--text-base-scale-size) * 1rem); // 12
+  --text-scale-2: calc(var(--token-font-size-size02) / var(--text-base-scale-size) * 1rem); // 14
+  --text-scale-3: calc(var(--token-font-size-size03) / var(--text-base-scale-size) * 1rem); // 16
+  --text-scale-4: calc(var(--token-font-size-size04) / var(--text-base-scale-size) * 1rem); // 18
+  --text-scale-5: calc(var(--token-font-size-size05) / var(--text-base-scale-size) * 1rem); // 20
+  --text-scale-6: calc(var(--token-font-size-size06) / var(--text-base-scale-size) * 1rem); // 24
+  --text-scale-7: calc(var(--token-font-size-size07) / var(--text-base-scale-size) * 1rem); // 26
+  --text-scale-8: calc(var(--token-font-size-size08) / var(--text-base-scale-size) * 1rem); // 28
+  --text-scale-9: calc(var(--token-font-size-size09) / var(--text-base-scale-size) * 1rem); // 30
+  --text-scale-10: calc(var(--token-font-size-size10) / var(--text-base-scale-size) * 1rem); // 34
+  --text-scale-11: calc(var(--token-font-size-size11) / var(--text-base-scale-size) * 1rem); // 36
+  --text-scale-12: calc(var(--token-font-size-size12) / var(--text-base-scale-size) * 1rem); // 40
+  --text-scale-13: calc(var(--token-font-size-size13) / var(--text-base-scale-size) * 1rem); // 48
+  --text-scale-14: calc(var(--token-font-size-size14) / var(--text-base-scale-size) * 1rem); // 72
+  --text-scale-15: calc(var(--token-font-size-size15) / var(--text-base-scale-size) * 1rem); // 96
+  --text-scale-16: calc(var(--token-font-size-size16) / var(--text-base-scale-size) * 1rem); // 100
+
+  /* max text sizes  */
+  --text-max-width: 38rem;
+
+  /* focus state */
+  --focus-outline: 1px dashed var(--token-color-basic-6);
+  --focus-box-shadow: none;
+  --focus-border-size: 1px;
+  --focus-border-style: dashed;
+  --focus-border-color: var(--token-color-basic-6);
+
+  /* initial values */
+  --text-weight: var(--token-font-weight-regular);
+
+  /* spacing */
+  --text-letter-spacing: normal;
+
+  /* H1 variables */
+  --heading-weight: var(--token-font-weight-regular);
+
+  /* H1 variables */
+  --h1-font-size-min: var(--text-scale-11);
+  --h1-font-size-value: 2.7vw + 3.2rem;
+  --h1-font-size-max: var(--text-scale-14);
+  --h1-line-height: 1.2;
+  --h1-letter-spacing: -0.5;
+
+  /* H2 variables */
+  --h2-font-size-min: var(--text-scale-11);
+  --h2-font-size-value: 3.2vw + calc(var(--h2-font-size-min) * 88.88 / 100);
+  --h2-font-size-max: var(--text-scale-14);
+  --h2-line-height: 1.2;
+
+  /* H3 variables */
+  --h3-font-size-min: var(--text-scale-11);
+  --h3-font-size-value: 0.5vw + 1.4rem;
+  --h3-font-size-max: var(--text-scale-12);
+  --h3-line-height: 1.2;
+
+  /* subtitles */
+  --subtitle-font-size-min: var(--text-base-size);
+  --subtitle-font-size-max: var(--text-scale-6);
+
+  // ################################################################
+  //    TYPOGRAPHY SCALE & FONTS
+  // ################################################################
+  --baseline: 1.375;
+
+  //--body-font-weight: 400;
+  //--heading-font-weight: 400;
+  --kerning: normal; // auto (default), normal (enabled), none (disabled)
+  --body-font-color: var(--token-color-basic-5);
+  //$body-font-letter-spacing: normal;
+
+  // Fonts
+  //--variable-font-family: 'Hauora var', Helvetica, Roboto, Arial, sans-serif;
+  //--variable-heading-font-family: serif;
+  //--body-font-family: 'Hauora', Helvetica, Roboto, Arial, sans-serif;
+  //--heading-font-family: 'AllRoundGothic', Helvetica, Roboto, Arial, sans-serif;
+
+  // ################################################################
+  //    SHADOWS
+  // ################################################################
+  --default-box-shadow: none;
+  --default-text-shadow: none;
+
+  // ################################################################
+  //    STATES
+  // ################################################################
+  --selection-color: var(--token-color-basic-1);
+  --selection-background-color: var(--token-color-basic-5);
+  --placeholder-color: var(--token-color-basic-6);
+
+  // ################################################################
+  //    SECTIONING
+  // ################################################################
+  --section-margin: 3rem;
+  --section-max-width: 1440px;
+
+  // ################################################################
+  //    GRID
+  // ################################################################
+  --grid-columns-mobile: 4;
+  --grid-columns-desktop: 12;
+  --grid-gap: 16px;
+
+  // ################################################################
+  //    HEADER
+  // ################################################################
+  --header-height-mobile: 80px;
+  --header-height-desktop: 88px; // 104px;
+  --header-height-desktop-sticky: 88px;
+}

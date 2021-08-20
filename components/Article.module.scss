@@ -1,0 +1,20 @@
+.Block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+
+  &:nth-child(1){
+    background-color: #00aa47;
+  }
+  &:nth-child(2){
+    background-color: #7a7a7a;
+  }
+  &:nth-child(3){
+    background-color: #56a0b8;
+  }
+  &:nth-child(4){
+    background-color: #332447;
+  }
+}

@@ -1,0 +1,90 @@
+@use "sass:math";
+
+@mixin visuallyhidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+@mixin container {
+  max-width: var(--section-max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--section-margin);
+
+  @include media('<tablet') {
+    padding: 0 1.5rem;
+  }
+
+  @include media('>=desktop', '<1092') {
+    padding: 0 1.5rem;
+  }
+
+  //@include media('>=desktophd') {
+  //  padding: 0;
+  //}
+}
+
+@mixin dropcap {
+  /* Initial Cap styles */
+  &:first-of-type::first-letter {
+    --text-weight: calc(var(--p-vf-weight) * 1.75);
+
+    float: left;
+    font-size: calc(var(--dc-font-size) * 1rem);
+    line-height: var(--dc-line-height);
+    padding: 0.1em 0.05em 0.05em 0;
+    //border: 1px solid #fff;
+
+    // if initial-letter is supported
+    @supports (initial-letter: 2) or (-webkit-initial-letter: 2) {
+      -webkit-initial-letter: 2;
+      initial-letter: 2;
+      /* undo other bits */
+      float: none;
+      font-size: inherit;
+      line-height: inherit;
+      margin: 0;
+      padding: 0 0.25em 0 0;
+    }
+  }
+}
+
+@function strip-unit($value) {
+  @return math.div($value, $value * 0 + 1);
+}
+
+@function rem-calc($px) {
+  $value: strip-unit($px) / strip-unit(ms(0)) * 1rem;
+
+  @return $value;
+}
+
+/**
+ * Sets vertical–rhythm for the given level.
+ * Usage:
+ *
+ * 	h1 {
+ * 		@include v-rhythm( 4 );
+ * 	}
+ */
+@mixin v-rhythm($level) {
+  $rhythm: map-get($rhythm-levels, $level);
+
+  font-size: nth($rhythm, 1);
+  line-height: nth($rhythm, 2);
+  margin-top: nth($rhythm, 3);
+  margin-bottom: nth($rhythm, 4);
+}
+
+/**
+  Create a margin bottom as a multiple of the line height
+ */
+@mixin margin-bottom($number) {
+  margin-bottom: #{$number * $line-height + 'rem'};
+}
