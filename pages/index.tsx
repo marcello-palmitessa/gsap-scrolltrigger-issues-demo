@@ -3,6 +3,7 @@ import {GetStaticProps} from 'next';
 import {QueryListenerOptions, useQuerySubscription} from 'react-datocms';
 import {Layout} from '@/components/Layout';
 import {Article} from "@/components/Article";
+import {ArticleWithScrollTrigger} from "@/components/ArticleWithScrollTrigger";
 
 
 export type HomeProps = {
@@ -10,13 +11,13 @@ export type HomeProps = {
 };
 
 export default function Home({subscription}: HomeProps): JSX.Element {
-
   return (
     <>
       <Layout>
         <Article/>
         <Article/>
         <Article/>
+        <ArticleWithScrollTrigger/>
         <Article/>
       </Layout>
     </>

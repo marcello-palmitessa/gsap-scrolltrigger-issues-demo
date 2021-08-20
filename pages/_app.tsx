@@ -1,50 +1,19 @@
-import { AppProps, NextWebVitalsMetric } from 'next/app';
-import { PageTransition } from 'next-page-transitions';
-import { SSRProvider } from '@react-aria/ssr';
-import { PageProvider, PageState } from '@/components/PageProvider';
+import {AppProps, NextWebVitalsMetric} from 'next/app';
+import {SSRProvider} from '@react-aria/ssr';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import {ScrollTrigger} from 'gsap/dist/ScrollTrigger';
 import '../styles/app.scss';
-import '../styles/fonts.css';
 
 // globally register for gsap ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-function App({ Component, pageProps, router }: AppProps): JSX.Element {
-  const log = [
-    {
-      nodeEnv: process.env.NODE_ENV,
-      environment: process.env.NEXT_PUBLIC_DATOCMS_ENVIRONMENT
-    }
-  ];
+function App({Component, pageProps, router}: AppProps): JSX.Element {
 
-  // eslint-disable-next-line no-console
-  console.table(log);
-
-  const { initialData } = pageProps.subscription;
-
-  /**
-   * Set the initial state of the page putting in the PageStateContext all the shared data
-   */
-  const { menu, footerMenu, socialLinks, allModularPages, allLabels, header, footer } = initialData;
-  const initialPageState: PageState = {
-    menu,
-    footerMenu,
-    socialLinks,
-    allModularPages,
-    allLabels,
-    header,
-    footer
-  };
 
   // eslint-disable-next-line react/jsx-props-no-spreading
   return (
     <SSRProvider>
-      <PageProvider initialState={initialPageState}>
-        <PageTransition timeout={500} classNames="page-transition">
-          <Component {...pageProps} key={router.route} />
-        </PageTransition>
-      </PageProvider>
+      <Component {...pageProps} key={router.route}/>
     </SSRProvider>
   );
 }

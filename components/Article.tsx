@@ -1,6 +1,8 @@
-export const Article = ():JSX.Element =>{
+import styles from './Article.module.scss'
+
+export const Article = (): JSX.Element => {
   return (
-    <article style={{backgroundColor: '#f4f4f4', minHeight: '100vh'}}>
+    <article className={styles.Block}>
       <h2>Scroll down</h2>
     </article>
   )

@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 80vh;
   color: #000;
 
   &:nth-child(1){
@@ -16,5 +17,13 @@
   }
   &:nth-child(4){
     background-color: #332447;
+    color: #fff;
+  }
+
+  img {
+    width: 400px;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
   }
 }
